@@ -1,0 +1,91 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "subProcess": true,
+            "stopOnEntry": false,
+            "autoReload": {
+                "enable": false
+            },
+        },
+        {
+            "name": "Python: Current File with profiler",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "cProfile",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "subProcess": true,
+            "args": [
+                "-o",
+                "tmp.prof",
+                "${file}"
+            ]
+        },
+        {
+            "name": "Install Suricata-check-extension-example",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/suricata-check-extension-example",
+            "module": "pip",
+            "args": [
+                "install",
+                "--no-build-isolation",
+                "--check-build-dependencies",
+                "--use-pep517",
+                "--compile",
+                "--force-reinstall",
+                "--no-deps",
+                "-U",
+                "./src/",
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "env": {
+                "CUDA_VISIBLE_DEVICES": ""
+            },
+        },
+        {
+            "name": "Pytest",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            "args": [],
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "subProcess": true,
+            "stopOnEntry": false,
+            "autoReload": {
+                "enable": false
+            },
+        },
+        {
+            "name": "Pytest: ET OPEN v7 Integration",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            "args": [
+                "-k",
+                "et_open",
+                "-k",
+                "v7",
+                "-m",
+                "slow or not slow",
+                "--cov-fail-under=0"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "subProcess": true,
+            "stopOnEntry": false,
+            "autoReload": {
+                "enable": false
+            },
+        },
+    ]
+}

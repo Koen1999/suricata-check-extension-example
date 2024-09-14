@@ -1,0 +1,95 @@
+name: Python Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  test:
+    name: Test Release
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: true
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip setuptools wheel build
+          pip install -r requirements.txt
+
+      - name: Test with pytest (fast)
+        run: |
+          pytest
+
+      - name: Test with pytest (slow)
+        run: |
+          pytest -m "slow"
+
+  release-build:
+    name: Build Release
+    runs-on: self-hosted
+    needs:
+      - test
+
+    strategy:
+      fail-fast: true
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install most recent build dependencies
+        run: |
+          python -m pip install --upgrade build --upgrade-strategy eager
+
+      - name: build release distributions
+        run: |
+          python -m build
+
+      - name: upload windows dists
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-dists-${{ matrix.python-version }}
+          path: dist/
+
+  pypi-publish:
+    name: Publish to PyPI
+    runs-on: self-hosted
+    needs:
+      - release-build
+    permissions:
+      id-token: write
+    environment: 
+      name: pypi
+
+    strategy:
+      fail-fast: true
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
+
+    steps:
+      - name: Retrieve release distributions
+        uses: actions/download-artifact@v4
+        with:
+          name: release-dists-${{ matrix.python-version }}
+          path: dist/
+
+      - name: Publish release distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          print-hash: true
