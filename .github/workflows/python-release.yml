@@ -7,12 +7,12 @@ on:
 jobs:
   test:
     name: Test Release
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     strategy:
       fail-fast: true
       matrix:
-        python-version: ["3.9", "3.10", "3.11", "3.12"]
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
 
     steps:
       - uses: actions/checkout@v4
@@ -44,7 +44,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        python-version: ["3.9", "3.10", "3.11", "3.12"]
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
 
     steps:
       - uses: actions/checkout@v4
@@ -60,36 +60,3 @@ jobs:
       - name: build release distributions
         run: |
           python -m build
-
-      - name: upload windows dists
-        uses: actions/upload-artifact@v4
-        with:
-          name: release-dists-${{ matrix.python-version }}
-          path: dist/
-
-  pypi-publish:
-    name: Publish to PyPI
-    runs-on: self-hosted
-    needs:
-      - release-build
-    permissions:
-      id-token: write
-    environment: 
-      name: pypi
-
-    strategy:
-      fail-fast: true
-      matrix:
-        python-version: ["3.9", "3.10", "3.11", "3.12"]
-
-    steps:
-      - name: Retrieve release distributions
-        uses: actions/download-artifact@v4
-        with:
-          name: release-dists-${{ matrix.python-version }}
-          path: dist/
-
-      - name: Publish release distributions to PyPI
-        uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          print-hash: true

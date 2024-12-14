@@ -7,7 +7,7 @@ from suricata_check_extension_example._version import (
 )
 
 __all__ = (
-    "checkers",
     "SURICATA_CHECK_DIR",
     "__version__",
+    "checkers",
 )

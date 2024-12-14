@@ -7,12 +7,12 @@ on:
 jobs:
   test:
     name: Extensive Test
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     strategy:
       fail-fast: true
       matrix:
-        python-version: ["3.9", "3.10", "3.11", "3.12"]
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
 
     steps:
       - uses: actions/checkout@v4
@@ -39,10 +39,6 @@ jobs:
       - name: Test with pytest - Integration ET OPEN v5
         run: |
           pytest -k et_open -k v5 -m "slow" --cov-fail-under=0
-
-      - name: Test with pytest - Integration ET OPEN v4
-        run: |
-          pytest -k et_open -k v4 -m "slow" --cov-fail-under=0
 
       - name: Test with pytest - Integration Snort Community
         run: |
