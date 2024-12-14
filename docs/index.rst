@@ -1,34 +1,28 @@
-.. suricata-check-extension-example documentation master file, created by
+.. suricata-check documentation master file, created by
    sphinx-quickstart on Sat Jun 22 09:40:01 2024.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to suricata-check's documentation!
+Welcome to suricata-check-extension-example's documentation!
 ==========================================
 
 .. toctree::
-   :maxdepth: 1
-   :caption: README
+   :caption: Documentation
+   :maxdepth: 2
 
    readme.md
 
 .. toctree::
-   :maxdepth: 1
-   :caption: CONTRIBUTING
-
-   contributing.md
-
-.. toctree::
-   :maxdepth: 5
    :caption: API Reference
+   :maxdepth: 5
    :titlesonly:
 
-   apidocs/index.rst
+   autoapi/suricata_check_extension_example/index
 
+.. toctree::
+   :caption: Indices and tables
+   :maxdepth: 2
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   genindex
+   modindex
+   search
