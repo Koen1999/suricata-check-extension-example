@@ -7,7 +7,7 @@ on:
 jobs:
   test:
     name: Test Release
-    runs-on: self-hosted
+    runs-on: linux
 
     strategy:
       fail-fast: true
@@ -37,7 +37,7 @@ jobs:
 
   release-build:
     name: Build Release
-    runs-on: self-hosted
+    runs-on: linux
     needs:
       - test
 
