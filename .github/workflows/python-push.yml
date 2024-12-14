@@ -7,7 +7,7 @@ on:
 jobs:
   test:
     name: Extensive Test
-    runs-on: self-hosted
+    runs-on: linux
 
     strategy:
       fail-fast: true
