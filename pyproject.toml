@@ -94,7 +94,7 @@ addopts = """
     -m "not slow"
     --strict-markers
     --color=yes
-    --cov=suricata_check
+    --cov=suricata_check_extension_example
     --cov-report term
     --cov-report xml
     --cov-report lcov
