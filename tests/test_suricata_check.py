@@ -43,7 +43,6 @@ def __run_around_tests():
 @pytest.mark.parametrize(("version", "et_open_url"), ET_OPEN_URLS.items())
 def test_main_cli_integration_et_open(version, et_open_url):
     os.environ["SURICATA_CHECK_FORCE_LOGGING"] = "TRUE"
-    warnings.warn("test")
 
     # Retrieve the latest ET Open rules if not present.
     if not os.path.exists(f"tests/data/emerging-all-{version}.rules"):
