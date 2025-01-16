@@ -1,5 +1,6 @@
 # The `suricata-check` project - Extension Example
 
+[![Static Badge](https://img.shields.io/badge/docs-suricata--check-blue)](https://suricata-check.teuwen.net/)
 [![GitHub License](https://img.shields.io/github/license/Koen1999/suricata-check-extension-example)](https://github.com/Koen1999/suricata-check-extension-example/blob/master/LICENSE)
 
 [![Quick Test, Build, Lint](https://github.com/Koen1999/suricata-check-extension-example/actions/workflows/python-pr.yml/badge.svg?event=push)](https://github.com/Koen1999/suricata-check-extension-example/actions/workflows/python-pr.yml)
