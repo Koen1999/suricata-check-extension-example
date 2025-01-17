@@ -53,7 +53,7 @@ classifiers = [
   "License :: OSI Approved :: European Union Public Licence 1.2 (EUPL 1.2)",
 ]
 requires-python = ">=3.9"
-dependencies = ["suricata-check[dev]==0.*", "idstools>=0.6.5",]
+dependencies = ["suricata-check==0.2.*", "idstools>=0.6.5",]
 dynamic = ["version"]
 
 [project.optional-dependencies]
@@ -73,9 +73,9 @@ dev = [
 ]
 
 [project.urls]
-homepage = "https://github.com/Koen1999/suricata-check-extension-example"
+homepage = "https://github.com/Koen1999/suricata-check"
 repository = "https://github.com/Koen1999/suricata-check-extension-example"
-documentation = "https://github.com/Koen1999/suricata-check-extension-example/README.md"
+documentation = "https://suricata-check.teuwen.net/"
 bugtracker = "https://github.com/Koen1999/suricata-check-extension-example/issues"
 
 [tool.setuptools.packages.find]
