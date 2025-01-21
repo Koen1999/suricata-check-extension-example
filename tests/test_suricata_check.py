@@ -69,7 +69,7 @@ def test_main_cli_integration_et_open(version, et_open_url):
         (
             f"--rules=tests/data/emerging-all-{version}.rules",
             "--out=tests/data/out",
-            "--log-level=DEBUG",
+            "--log-level=INFO",
         ),
         catch_exceptions=False,
     )
