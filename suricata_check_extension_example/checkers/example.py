@@ -1,5 +1,7 @@
 """`ExampleChecker`."""
 
+import logging
+
 import idstools.rule
 from suricata_check.checkers.interface import CheckerInterface
 from suricata_check.utils import checker
@@ -12,10 +14,10 @@ class ExampleChecker(CheckerInterface):
     Codes E000-E009 report on bogus issues.
     """
 
-    codes = (
-        "E000",
-        "E001",
-    )
+    codes = {
+        "E000": {"severity": logging.INFO},
+        "E001": {"severity": logging.INFO},
+    }
 
     def _check_rule(
         self: "ExampleChecker",
