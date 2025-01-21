@@ -50,7 +50,7 @@ classifiers = [
   "Operating System :: Microsoft :: Windows",
   "Operating System :: MacOS",
   "Framework :: Pytest",
-  "License :: OSI Approved :: European Union Public Licence 1.2 (EUPL 1.2)",
+  "License :: OSI Approved :: Apache Software License",
 ]
 requires-python = ">=3.9"
 dependencies = ["suricata-check>=0.3.0beta0", "idstools>=0.6.5",]
