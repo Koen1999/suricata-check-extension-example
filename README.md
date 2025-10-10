@@ -9,6 +9,14 @@
 [`suricata-check`](https://github.com/Koen1999/suricata-check) is a command line utility to provide feedback on [Suricata](https://github.com/OISF/suricata) rules.
 The tool can detect various issues including those covering syntax validity, interpretability, rule specificity, rule coverage, and efficiency.
 
+## How to use this template
+
+1. Choose a name for your extension (e.g. `suricata-check-foobar`) and replace `suricata-check-extension-example` by your chosen name in all folder names, file names, and file contents. Similarly, replace `suricata_check_extension_example` by your chosen name with the dashes (`-`) substituted by underscores (`_`).
+2. Rename `suricata_check_extension-example/checkers/example.py` and the class contained therein and make refactor accordingly in that file, and in `suricata_check_extension-example/checkers/init.py`.
+3. Similarly, rename `tests/checkers/test_example.py` and adjust the reference to the renamed checker file/class in that file and in `tests/test_suricata_check.py`.
+4. Implement tests for your checker in `tests/checkers/test_example.py` and implement the checker in `suricata_check_extension-example/checkers/example.py`.
+5. You can now package, distribute and install the extension like any other Python package. When installed, the extension will be automatically selected by `suricata-check` when ran from the command line.
+
 ## Contributing
 
 If you would like to contribute, please check out [CONTRIBUTING.md](https://github.com/Koen1999/suricata-check-extension-example/blob/master/CONTRIBUTING.md) some helpful suggestions and instructions.
