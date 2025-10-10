@@ -13,7 +13,7 @@ import suricata_check_extension_example
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = "suricata-check-application-example"
+project = "suricata-check-extension-example"
 copyright = "2024, Koen Teuwen"
 author = "Koen Teuwen"
 
@@ -26,7 +26,6 @@ release = suricata_check_extension_example.__version__
 
 extensions = [
     "myst_parser",
-    "sphinx.ext.autodoc",
     "autoapi.extension",
     "sphinx.ext.intersphinx",
     "sphinx.ext.viewcode",
@@ -39,50 +38,30 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3/", None),
     "sphinx": ("https://www.sphinx-doc.org/en/master", None),
+    "suricata-check": ("https://suricata-check.teuwen.net/", None),
     "idstools": ("https://idstools.readthedocs.io/en/latest/", None),
-    "suricata-check": ("https://suricata-check.readthedocs.io/en/latest/", None),
 }
 
 root_doc = "index"
 master_doc = "index"
 
+suppress_warnings = []
+
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = "sphinx_rtd_theme"
-html_static_path = ["static"]
+html_theme_options = {
+    "prev_next_buttons_location": "both",
+    "style_external_links": True,
+}
+html_favicon = "https://docs.readthedocs.io/favicon.ico"
 
 # -- Options for MyST     -------------------------------------------------
 # https://myst-parser.readthedocs.io/en/latest/
 
 myst_enable_extensions = ["linkify"]
 myst_heading_anchors = 5
-
-# -- Options for Autodoc     -------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#configuration
-
-autoclass_context = "both"
-autodoc_class_signature = "separated"
-autodoc_member_order = "groupwise"
-autodoc_default_flags = [
-    "members",
-    "special-members",
-    "inherited-members",
-    "show-inheritance",
-    "ignore-module-all",
-    "maxdepth",
-]
-autodoc_default_options = {
-    "member-order": "bysource",
-    "special-members": "__init__",
-    "undoc-members": False,
-    "maxdepth": 2,
-}
-autodoc_typehints = "both"
-autodoc_typehints_description_target = "all"
-
-# -- Options for AutoAPI     -------------------------------------------------
-# https://sphinx-autoapi.readthedocs.io/en/latest/
 
 autoapi_dirs = ["../suricata_check_extension_example"]
 autoapi_options = [
@@ -96,3 +75,8 @@ autoapi_add_toctree_entry = False
 autoapi_python_class_content = "both"
 autoapi_member_order = "groupwise"
 autoapi_own_page_level = "module"
+
+# -- Options for viewcode     -------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/extensions/viewcode.html
+
+viewcode_line_numbers = True
