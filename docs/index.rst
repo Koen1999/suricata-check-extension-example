@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to suricata-check-extension-example's documentation!
-==========================================
+============================================================
 
 .. toctree::
    :caption: Documentation

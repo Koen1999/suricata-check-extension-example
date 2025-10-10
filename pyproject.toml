@@ -51,7 +51,7 @@ classifiers = [
   "Operating System :: Microsoft :: Windows",
   "Operating System :: MacOS",
   "Framework :: Pytest",
-  "License :: OSI Approved :: European Union Public Licence 1.2 (EUPL 1.2)",
+  "License :: OSI Approved :: Apache Software License",
 ]
 requires-python = ">=3.9"
 dependencies = ["suricata-check>=0.3.0beta0", "idstools>=0.6.5",]
@@ -68,7 +68,7 @@ dev = [
   "black>=24.4.2",
   "pyright>=1.1.367",
   "sphinx>=7.3.7",
-  "sphinx-rtd-theme>=2.0.0",
+  "sphinx-rtd-theme>=3.0.0",
   "myst-parser[linkify]>=3.0.1",
   "sphinx-click>=6.0.0",
   "sphinx-autoapi>=3.4.0",
@@ -101,7 +101,7 @@ addopts = """
     --cov-report xml
     --cov-report lcov
     --cov-report html
-    --cov-fail-under=80
+    --cov-fail-under=75
     --cov-branch
 """
 

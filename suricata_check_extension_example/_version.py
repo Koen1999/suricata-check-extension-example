@@ -21,10 +21,23 @@ def get_version() -> str:
 
     git_dir = os.path.join(SURICATA_CHECK_DIR, "..", ".git")
     if os.path.exists(git_dir):
-        v = __get_git_revision_short_hash()
-        _logger.debug(
-            "Detected suricata-check-extension-example version using git: %s", v
-        )
+        try:
+            import setuptools_git_versioning  # noqa: RUF100, PLC0415
+
+            v = str(
+                setuptools_git_versioning.get_version(
+                    root=os.path.join(SURICATA_CHECK_DIR, "..")
+                )
+            )
+            _logger.debug(
+                "Detected suricata-check-extension-example version using setuptools_git_versioning: %s",
+                v,
+            )
+        except:  # noqa: E722
+            v = __get_git_revision_short_hash()
+            _logger.debug(
+                "Detected suricata-check-extension-example version using git: %s", v
+            )
     else:
         try:
             v = version("suricata-check-extension-example")
