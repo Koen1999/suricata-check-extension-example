@@ -39,7 +39,6 @@ intersphinx_mapping = {
     "python": ("https://docs.python.org/3/", None),
     "sphinx": ("https://www.sphinx-doc.org/en/master", None),
     "suricata-check": ("https://suricata-check.teuwen.net/", None),
-    "idstools": ("https://idstools.readthedocs.io/en/latest/", None),
 }
 
 root_doc = "index"

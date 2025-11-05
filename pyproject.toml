@@ -54,12 +54,12 @@ classifiers = [
   "License :: OSI Approved :: Apache Software License",
 ]
 requires-python = ">=3.9"
-dependencies = ["suricata-check>=0.3.0beta0", "idstools>=0.6.5",]
+dependencies = ["suricata-check>=0.7.0beta0"]
 dynamic = ["version"]
 
 [project.optional-dependencies]
 dev = [
-  "suricata-check[dev]>=0.3.0beta0",
+  "suricata-check[dev]>=0.7.0beta0",
   "click>=8.1.7",
   "pytest>=8.2.1",
   "pytest-cov>=5.0.0",
@@ -178,7 +178,6 @@ docstring-code-line-length = "dynamic"
 [tool.pyright]
 pythonVersion = "3.9"
 pythonPlatform = "All"
-root = ['suricata_check_extension_example']
 include = ["suricata_check_extension_example", "tests"]
 exclude = ["**/__pycache__"]
 typeCheckingMode = "standard"
@@ -194,4 +193,3 @@ reportImplicitStringConcatenation = "warning"
 reportUnusedExpression = "warning"
 reportUnnecessaryTypeIgnoreComment = "warning"
 reportMatchNotExhaustive = "warning"
-reportShadowedImports = "warning"

@@ -2,8 +2,8 @@
 
 import logging
 
-import idstools.rule
 from suricata_check.checkers.interface import CheckerInterface
+from suricata_check.rule import Rule
 from suricata_check.utils import checker
 from suricata_check.utils.checker_typing import ISSUES_TYPE, Issue
 
@@ -21,7 +21,7 @@ class ExampleChecker(CheckerInterface):
 
     def _check_rule(
         self: "ExampleChecker",
-        rule: idstools.rule.Rule,
+        rule: Rule,
     ) -> ISSUES_TYPE:
         issues: ISSUES_TYPE = []
 
