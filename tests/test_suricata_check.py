@@ -17,7 +17,7 @@ import suricata_check
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import suricata_check_extension_example
 
-_regex_provider = suricata_check.utils.regex.get_regex_provider()
+_regex_provider = suricata_check.utils.regex_provider.get_regex_provider()
 
 ET_OPEN_URLS = {
     "v7": "https://rules.emergingthreats.net/open/suricata-7.0.3/emerging-all.rules.tar.gz",
