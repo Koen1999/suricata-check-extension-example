@@ -17,28 +17,28 @@ class TestExample(GenericChecker):
         self.checker = suricata_check_extension_example.checkers.ExampleChecker()
 
     def test_e000_bad(self):
-        rule = suricata_check.rule.parse(
+        rule = suricata_check.utils.rule.parse(
             """alert ip any any -> any any (msg:"Test"; sid:1;)""",
         )
 
         self._test_issue(rule, "E000", True)
 
     def test_e000_good(self):
-        rule = suricata_check.rule.parse(
+        rule = suricata_check.utils.rule.parse(
             """alert ip any any -> any any (sid:1;)""",
         )
 
         self._test_issue(rule, "E000", False)
 
     def test_e001_bad(self):
-        rule = suricata_check.rule.parse(
+        rule = suricata_check.utils.rule.parse(
             """alert ip any any -> any any (msg:"Test"; sid:1234;)""",
         )
 
         self._test_issue(rule, "E001", True)
 
     def test_e001_good(self):
-        rule = suricata_check.rule.parse(
+        rule = suricata_check.utils.rule.parse(
             """alert ip any any -> any any (msg:"Test"; sid:20101234;)""",
         )
 

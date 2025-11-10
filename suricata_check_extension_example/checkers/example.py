@@ -3,9 +3,9 @@
 import logging
 
 from suricata_check.checkers.interface import CheckerInterface
-from suricata_check.rule import Rule
 from suricata_check.utils import checker
 from suricata_check.utils.checker_typing import ISSUES_TYPE, Issue
+from suricata_check.utils.rule import Rule
 
 
 class ExampleChecker(CheckerInterface):
