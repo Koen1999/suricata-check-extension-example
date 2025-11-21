@@ -26,8 +26,8 @@ def get_version() -> str:
 
             v = str(
                 setuptools_git_versioning.get_version(
-                    root=os.path.join(SURICATA_CHECK_DIR, "..")
-                )
+                    root=os.path.join(SURICATA_CHECK_DIR, ".."),
+                ),
             )
             _logger.debug(
                 "Detected suricata-check-extension-example version using setuptools_git_versioning: %s",
@@ -36,7 +36,7 @@ def get_version() -> str:
         except:  # noqa: E722
             v = __get_git_revision_short_hash()
             _logger.debug(
-                "Detected suricata-check-extension-example version using git: %s", v
+                "Detected suricata-check-extension-example version using git: %s", v,
             )
     else:
         try:
@@ -47,10 +47,11 @@ def get_version() -> str:
             )
         except PackageNotFoundError:
             _logger.debug(
-                "Failed to detect suricata-check-extension-example version: %s", v
+                "Failed to detect suricata-check-extension-example version: %s", v,
             )
 
     return v
 
 
 __version__: str = get_version()
+"""The version of the `suricata-check-extension-example` module being executed."""

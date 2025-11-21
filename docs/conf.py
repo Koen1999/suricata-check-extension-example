@@ -62,6 +62,9 @@ html_favicon = "https://docs.readthedocs.io/favicon.ico"
 myst_enable_extensions = ["linkify"]
 myst_heading_anchors = 5
 
+# -- Options for AutoAPI     -------------------------------------------------
+# https://sphinx-autoapi.readthedocs.io/en/latest/index.html
+
 autoapi_dirs = ["../suricata_check_extension_example"]
 autoapi_options = [
     "members",
@@ -69,6 +72,7 @@ autoapi_options = [
     "show-module-summary",
     "special-members",
     "imported-members",
+    "undoc-members",
 ]
 autoapi_add_toctree_entry = False
 autoapi_python_class_content = "both"
