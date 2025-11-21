@@ -36,7 +36,8 @@ def get_version() -> str:
         except:  # noqa: E722
             v = __get_git_revision_short_hash()
             _logger.debug(
-                "Detected suricata-check-extension-example version using git: %s", v,
+                "Detected suricata-check-extension-example version using git: %s",
+                v,
             )
     else:
         try:
@@ -47,7 +48,8 @@ def get_version() -> str:
             )
         except PackageNotFoundError:
             _logger.debug(
-                "Failed to detect suricata-check-extension-example version: %s", v,
+                "Failed to detect suricata-check-extension-example version: %s",
+                v,
             )
 
     return v
