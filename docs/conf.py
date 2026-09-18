@@ -18,8 +18,8 @@ copyright = "2024, Koen Teuwen"
 author = "Koen Teuwen"
 
 # Version / release information
-version = suricata_check_extension_example.__version__
-release = suricata_check_extension_example.__version__
+version = suricata_check_extension_example.__version__.split("+")[0]
+release = suricata_check_extension_example.__version__.split("+")[0]
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -29,7 +29,9 @@ extensions = [
     "autoapi.extension",
     "sphinx.ext.intersphinx",
     "sphinx.ext.viewcode",
-    "sphinx_click",
+    "sphinx_sitemap",
+    "sphinx_copybutton",
+    "sphinxext.opengraph",
 ]
 
 templates_path = ["_templates"]
@@ -49,11 +51,8 @@ suppress_warnings = []
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = "sphinx_rtd_theme"
-html_theme_options = {
-    "prev_next_buttons_location": "both",
-    "style_external_links": True,
-}
+html_theme = "furo"
+html_theme_options = {}
 html_favicon = "https://docs.readthedocs.io/favicon.ico"
 
 # -- Options for MyST     -------------------------------------------------

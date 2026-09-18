@@ -62,12 +62,15 @@ dynamic = ["version"]
 [project.optional-dependencies]
 test = ["pytest>=8.0.0", "pytest-cov>=6.0.0"]
 docs = [
+  "suricata-check[docs]>=0.9.0beta0",
   "sphinx>=7.3.7",
-  "sphinx-rtd-theme>=3.0.0",
+  "furo>=1.1.0",
   "myst-parser[linkify]>=3.0.1",
   "sphinx-click>=6.0.0",
   "sphinx-autoapi>=3.4.0",
   "sphinx-sitemap>=2.6.0",
+  "sphinx-copybutton>=0.5.2",
+  "sphinxext-opengraph[social-cards]>=0.13.0",
 ]
 lint = ["flake8>=7.1.0", "ruff>=0.4.9", "black>=24.4.2", "pyright>=1.1.367"]
 
